@@ -3,7 +3,6 @@ package bettapcq.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 //annotazioni:
 @Entity
@@ -31,19 +30,13 @@ public class Evento {
     private long numeroMassimoPartecipanti;
 
 
-    @ManyToMany
-    @JoinTable(name = "eventi_locations",
-            joinColumns = @JoinColumn(name = "id_evento", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "id_location", nullable = false))
-    private List<Location> locations;
-
     //costruttore vuoto:
     public Evento() {
 
     }
 
     //costruttore classico:
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, tipiEvento tipoEvento, long numeroMassimoPartecipanti, String location) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, tipiEvento tipoEvento, long numeroMassimoPartecipanti) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
@@ -104,7 +97,6 @@ public class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
-                ", locations=" + locations +
                 '}';
     }
 }

@@ -19,7 +19,48 @@ public class Location {
     private String città;
 
 
-    @ManyToMany(mappedBy = "location")
+    @ManyToMany(mappedBy = "locations")
     private List<Partecipazione> partecipazioni;
 
+    public Location() {
+
+    }
+
+    public Location(String nomeLocation, String città) {
+        this.nomeLocation = nomeLocation;
+        this.città = città;
+    }
+
+    public long getIdLocation() {
+        return idLocation;
+    }
+
+    public String getNomeLocation() {
+        return nomeLocation;
+    }
+
+    public void setNomeLocation(String nomeLocation) {
+        this.nomeLocation = nomeLocation;
+    }
+
+    public String getCittà() {
+        return città;
+    }
+
+    public void setCittà(String città) {
+        this.città = città;
+    }
+
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "idLocation=" + idLocation +
+                ", nomeLocation='" + nomeLocation + '\'' +
+                ", città='" + città + '\'' +
+                '}';
+    }
 }

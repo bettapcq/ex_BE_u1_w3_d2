@@ -3,6 +3,7 @@ package bettapcq.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,6 +25,15 @@ public class Partecipazione {
     @ManyToOne
     @JoinColumn(name = "id_persona", nullable = false)
     private Persona partecipante;
+
+    @ManyToMany
+    @JoinTable(name = "partecipazioni_locations",
+            joinColumns = @JoinColumn(name = "id_partecipazione", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_location", nullable = false))
+    // @JoinTable non è di per se obbligatoria, però non usandola JPA solitamente fa un po' di pasticci
+    // meglio usarla per scegliere noi come sarà fatta la JUNCTION TABLE
+    private List<Location> locations;
+
 
     public UUID getIdPartecipazione() {
         return idPartecipazione;
@@ -64,6 +74,7 @@ public class Partecipazione {
                 ", stato=" + stato +
                 ", evento=" + evento +
                 ", partecipante=" + partecipante +
+                ", locations=" + locations +
                 '}';
     }
 }

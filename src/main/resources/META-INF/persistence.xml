@@ -5,6 +5,9 @@
     <persistence-unit name="gestioneeventi2pu">
         <!-- TODO: Aggiungi elenco delle entities -->
         <class>bettapcq.entities.Evento</class>
+        <class>bettapcq.entities.Location</class>
+        <class>bettapcq.entities.Partecipazione</class>
+        <class>bettapcq.entities.Persona</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioneeventi2"/>

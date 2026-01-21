@@ -1,16 +1,30 @@
 package bettapcq;
 
+import bettapcq.dao.EventiDAO;
+import bettapcq.dao.LocationsDAO;
+import bettapcq.dao.PartecipazioniDAO;
+import bettapcq.dao.PersoneDAO;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
 public class Application {
 
     //connessione al DB tramite apertura EntityManagerFactory:
-//    private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("gestioneeventipu");
+    private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("gestioneeventi2pu");
 
     public static void main(String[] args) {
+
+        System.out.println("Hello world!");
 //oggetto per la gestione delle comunicazioni con DB:
-//        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         //richiamo il DAO:
-//        EventiDAO eventiDAO = new EventiDAO(entityManager);
+        EventiDAO eventiDAO = new EventiDAO(entityManager);
+        LocationsDAO locationsDAO = new LocationsDAO(entityManager);
+        PartecipazioniDAO partecipazioniDAO = new PartecipazioniDAO(entityManager);
+        PersoneDAO personeDAO = new PersoneDAO(entityManager);
+
 
 //        //creazione istanze:
 //        Evento fieraPassito = new Evento("Fiera del Passito",
@@ -49,27 +63,10 @@ public class Application {
 //        eventiDAO.save(workshopRobotica);
 //        eventiDAO.save(cenaAlBuio);
 
-        //ricerca elemento nel DB (METODO GETBYID):
-
-//        try {
-//            Evento eventoTrovato = eventiDAO.getById(5);
-//            System.out.println("risuoltato ricerca: " + eventoTrovato);
-//
-//        } catch (NotFoundException exception) {
-//            System.out.println(exception.getMessage());
-//        }
-//
-//
-//        //eliminazione elemento da DB (METODO DELETEBYID):
-//        try {
-//            eventiDAO.deleteById(4);
-//        } catch (NotFoundException exception) {
-//            System.out.println(exception.getMessage());
-//        }
 
 // chiusura EntityManager, EntityManagerFactory:
-//        entityManager.close();
-//        entityManagerFactory.close();
+        entityManager.close();
+        entityManagerFactory.close();
 
     }
 

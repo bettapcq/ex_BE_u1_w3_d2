@@ -10,7 +10,11 @@
         <class>bettapcq.entities.Persona</class>
 
         <properties>
+<<<<<<< HEAD:src/main/resources/META-INF/persistence.xml
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioneeventi2"/>
+=======
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/gestioneeventi"/>
+>>>>>>> parent of e18240c (add all tests on main):src/main/resurces/META-INF/persistence.xml
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <property name="jakarta.persistence.jdbc.password" value="1234"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>

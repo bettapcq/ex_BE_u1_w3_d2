@@ -1,5 +1,6 @@
 package bettapcq;
 
+<<<<<<< HEAD
 import bettapcq.dao.EventiDAO;
 import bettapcq.dao.LocationsDAO;
 import bettapcq.dao.PartecipazioniDAO;
@@ -68,7 +69,11 @@ public class Application {
         entityManager.close();
         entityManagerFactory.close();
 
+=======
+public class Application {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+>>>>>>> parent of e18240c (add all tests on main)
     }
-
-
 }
